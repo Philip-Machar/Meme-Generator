@@ -7,12 +7,12 @@ const Card = () => {
       </div>
       <div className="mr-8 ml-8">
         <form action="">
-            <div className="flex gap-8 mt-8 mb-4">
-                <div>
+            <div className="flex gap-8 mt-8 mb-5">
+                <div className="grid gap-2 w-full">
                     <label htmlFor="topText">Top text</label>
                     <input className="w-full h-8 rounded-md border border-gray-300" id="topText" type="text" name="topText" />
                 </div>
-                <div>
+                <div className="grid gap-2 w-full">
                     <label htmlFor="bottomText">Bottom text</label>
                     <input className="w-full h-8 rounded-md border border-gray-300" id="bottomText" type="text" name="bottomText" />
                 </div>
