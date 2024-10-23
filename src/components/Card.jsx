@@ -1,11 +1,14 @@
 import memeData from "../memeData";
+import { useState } from "react";
 
 const Card = () => {
-  const randomIndex = Math.floor(Math.random() * memeData.data.memes.length);
-  const meme = memeData.data.memes[randomIndex];
+
+  const [imageUrl, setImageUrl] = useState("/images/meme.png");
 
   const handleClick = () => {
-    console.log(meme)
+    const randomIndex = Math.floor(Math.random() * memeData.data.memes.length);
+    const meme = memeData.data.memes[randomIndex];
+    setImageUrl(meme.url)
   }
 
   return (
@@ -28,7 +31,7 @@ const Card = () => {
             </div>
             <button onClick={handleClick} className="bg-gradient-to-r from-[#672280] to-[#A626D3] p-2 w-full rounded-md text-white mb-8">Get a new meme image <img src="" alt="" /> </button>
         </div>
-        <img className="w-full mb-10" src="/images/meme.png" alt="meme image" />
+        <img className="w-full mb-10" src={imageUrl} alt="meme image" />
       </div>
     </div>
   )
