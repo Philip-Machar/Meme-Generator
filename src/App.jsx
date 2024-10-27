@@ -2,7 +2,7 @@ import Card from "./components/Card";
 
 const App = () => {
   return (
-    <div className="w-screen h-screen grid place-content-center bg-gray-100">
+    <div className="w-screen h-[70%] grid place-content-center py-12">
       <Card />
     </div>
   )
