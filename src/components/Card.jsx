@@ -22,8 +22,21 @@ const Card = () => {
         }
       )
     })
-    console.log(randomMeme)
   }
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setMeme(prevMeme => {
+      return (
+        {
+          ...prevMeme,
+          [name]: value
+        }
+      )
+    })
+  }
+
+  console.log(meme)
 
   return (
     <div className="max-w-[550px] max-h-full bg-white shadow-xl">
@@ -36,16 +49,34 @@ const Card = () => {
             <div className="flex gap-8 mt-8 mb-5">
                 <div className="grid gap-2 w-full">
                     <label htmlFor="topText">Top text</label>
-                    <input className="w-full h-8 rounded-md outline-none border border-gray-300 pl-3 pr-3" id="topText" type="text" name="topText" />
+                    <input 
+                      className="w-full h-8 rounded-md outline-none border border-gray-300 pl-3 pr-3" 
+                      id="topText" 
+                      type="text" 
+                      name="topText" 
+                      value={meme.topText}
+                      onChange={handleChange}
+                    />
                 </div>
                 <div className="grid gap-2 w-full">
                     <label htmlFor="bottomText">Bottom text</label>
-                    <input className="w-full h-8 rounded-md outline-none border border-gray-300 pl-3 pr-3" id="bottomText" type="text" name="bottomText" />
+                    <input 
+                      className="w-full h-8 rounded-md outline-none border border-gray-300 pl-3 pr-3" 
+                      id="bottomText" 
+                      type="text" 
+                      name="bottomText" 
+                      value={meme.bottomText}
+                      onChange={handleChange}
+                    />
                 </div>
             </div>
             <button onClick={getMeme} className="bg-gradient-to-r from-[#672280] to-[#A626D3] p-2 w-full rounded-md text-white mb-8">Get a new meme image <img src="" alt="" /> </button>
         </div>
-        <img className="w-full mb-10 object-cover" src={meme.randomImage} alt="meme image" />
+        <div className="relative">
+          <img className="w-full h-full mb-10 object-cover py-4" src={meme.randomImage} alt="meme image"></img>
+          <h2 className="absolute top-4 text-3xl">{meme.topText}</h2>
+          <h2 className="absolute bottom-4 text-3xl">{meme.bottomText}</h2>
+        </div>
       </div>
     </div>
   )
