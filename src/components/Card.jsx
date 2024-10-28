@@ -1,9 +1,8 @@
-import memeData from "../memeData";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Card = () => {
   
-  const [allImages, setAllImages] = useState(memeData)
+  const [allMemes, setAllImages] = useState([])
 
   const [meme, setMeme] = useState({
     topText: "",
@@ -11,9 +10,16 @@ const Card = () => {
     randomImage: "/images/meme.png"
   })
 
+  useEffect(() => {
+    fetch("https://api.imgflip.com/get_memes")
+      .then(respnose => respnose.json())
+      .then(data => setAllImages(data.data.memes))
+      .catch(error => console.error("Error", error))
+  }, [])
+
   const getMeme = () => {
-    const randomIndex = Math.floor(Math.random() * memeData.data.memes.length);
-    const randomMeme = allImages.data.memes[randomIndex];
+    const randomIndex = Math.floor(Math.random() * allMemes.length);
+    const randomMeme = allMemes[randomIndex];
     setMeme(prevMeme => {
       return (
         {
@@ -35,8 +41,6 @@ const Card = () => {
       )
     })
   }
-
-  console.log(meme)
 
   return (
     <div className="max-w-[550px] max-h-full bg-white shadow-xl">
