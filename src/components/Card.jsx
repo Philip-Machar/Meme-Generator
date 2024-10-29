@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 const Card = () => {
   
-  const [allMemes, setAllImages] = useState([])
+  const [allMemes, setAllMemes] = useState([])
 
   const [meme, setMeme] = useState({
     topText: "",
@@ -11,10 +11,19 @@ const Card = () => {
   })
 
   useEffect(() => {
-    fetch("https://api.imgflip.com/get_memes")
-      .then(respnose => respnose.json())
-      .then(data => setAllImages(data.data.memes))
-      .catch(error => console.error("Error", error))
+    const getMemes = async () => {
+      try {
+        const res = await fetch("https://api.imgflip.com/get_memes");
+        const data = await res.json();
+
+        const memesArray = data.data.memes;
+        
+        setAllMemes(memesArray)
+      } catch (error) {
+        console.error(`Error: ${error}`)
+      }
+    }
+    getMemes()
   }, [])
 
   const getMeme = () => {
