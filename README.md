@@ -44,17 +44,3 @@ To run this project locally:
 The `Card` component is responsible for the core functionality of the Meme Generator. It fetches a list of meme images from the Imgflip API using the `useEffect` hook and stores them in the `allMemes` state. When the user clicks the "Get a new meme image" button, the `getMeme` function selects a random meme from the list and updates the `meme` state with the new image URL.
 
 The component also handles the user input for the top and bottom text using the `handleChange` function, which updates the `meme` state accordingly. The generated meme is then displayed with the text overlaid on the image.
-
-## Contributing
-
-Contributions, issues, and feature requests are welcome. Feel free to check [issues page](your-repo-issues-url-here) if you want to contribute.
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
-
-## Acknowledgements
-
-- Imgflip API for providing the meme image data
-- Tailwind CSS for the responsive and visually appealing styling
-- Fonts from Google Fonts
