@@ -86,9 +86,9 @@ const Card = () => {
             <button onClick={getMeme} className="bg-gradient-to-r from-[#672280] to-[#A626D3] p-2 w-full rounded-md text-white mb-8">Get a new meme image <img src="" alt="" /> </button>
         </div>
         <div className="relative">
-          <img className="w-full h-full mb-10 object-cover py-4" src={meme.randomImage} alt="meme image"></img>
-          <h2 className="absolute top-4 text-3xl">{meme.topText}</h2>
-          <h2 className="absolute bottom-4 text-3xl">{meme.bottomText}</h2>
+          <img className="w-full h-full mb-10 object-cover py-4" src={meme.randomImage} alt="meme image" />
+          <h2 className="absolute top-6 left-1/2 transform -translate-x-1/2 font-lilita text-3xl text-white text-outline">{meme.topText}</h2>
+          <h2 className="absolute bottom-6 left-1/2 transform -translate-x-1/2 font-lilita text-3xl text-white text-outline">{meme.bottomText}</h2>
         </div>
       </div>
     </div>
